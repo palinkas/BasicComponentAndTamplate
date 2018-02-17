@@ -7,4 +7,17 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'app';
+  events = ['sziget', 'efott', 'fezen', 'balatonsound'];
+  show = true;
+  klikkeljunke = false;
+  inputContent: string;
+
+  toggle(){
+    this.show = !this.show;
+    this.inputContent = 'hello, pisti, sanyi, csár';
+  }
+
+  demo(ev: MouseEvent){
+    console.log(ev.screenX);
+  }
 }
