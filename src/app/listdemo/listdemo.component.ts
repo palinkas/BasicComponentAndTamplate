@@ -1,9 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
-export class EventModel {
-  id: number;
-  name: string;
-}
+import {EventModel} from './event-model';
 
 @Component({
   selector: 'app-listdemo',
@@ -17,20 +13,35 @@ export class ListdemoComponent {
     this.events = [
       {
         id: 1,
-        name: 'sziget'
+        name: 'sziget',
+        pic: 'https://bkk.hu/wp-content/uploads/2017/08/sziget-2017-logo.png'
       },
     {
       id: 2,
-      name: 'fezen'
+      name: 'fezen',
+      pic: 'http://www.e-jegyiroda.hu/img/fezen-2017-jegyek-berletek.jpg'
     },
     {
       id: 3,
-      name: 'rockmaraton'
+      name: 'rockmaraton',
+      pic: 'http://www.rockmaraton.hu/media/images/rockmaraton-2018-jegyvasarlas.jpg'
     }
     ];
     console.log('megjott a listdemo cmp');
+    this.events.reduce(( x , y ) => {
+      if (x > y) {
+        return x;
+      } else {
+
+      }
+    });
   }
 
+
+  add(newEventNameInput: HTMLInputElement) {
+    this.events = [...this.events, new EventModel(5, newEventNameInput.value)];
+    newEventNameInput.value = '';
+  }
 
   delete(id: number) {
     /*filter: fog egy tömböt, annak az adott elemeihez kér egy paramétert, és olyan tömböt ad vissza,
